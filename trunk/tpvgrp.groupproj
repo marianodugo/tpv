@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{2A86BD6B-17DE-4597-A0CA-930D7BC3BF30}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="tpv.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="srv\srv.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="tpv">
+			<MSBuild Projects="tpv.dproj"/>
+		</Target>
+		<Target Name="tpv:Clean">
+			<MSBuild Targets="Clean" Projects="tpv.dproj"/>
+		</Target>
+		<Target Name="tpv:Make">
+			<MSBuild Targets="Make" Projects="tpv.dproj"/>
+		</Target>
+		<Target Name="srv">
+			<MSBuild Projects="srv\srv.dproj"/>
+		</Target>
+		<Target Name="srv:Clean">
+			<MSBuild Targets="Clean" Projects="srv\srv.dproj"/>
+		</Target>
+		<Target Name="srv:Make">
+			<MSBuild Targets="Make" Projects="srv\srv.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="tpv;srv"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="tpv:Clean;srv:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="tpv:Make;srv:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>
