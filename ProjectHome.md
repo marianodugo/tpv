@@ -1,0 +1,1 @@
+Terminal de Punto de Venta libre en español desarrollado en Delphi con base de datos Firebird. Módulos de artículos, clientes, proveedores, categorías, departamentos, tipos de pago, descuentos, vendedores, facturación, seguridad de usuarios, etc.
